@@ -1,9 +1,10 @@
-package com.naovis.salaryviewer.services;
+package com.naovis.salaryviewer.services.impl;
 
 import com.naovis.salaryviewer.converters.Converter;
 import com.naovis.salaryviewer.entities.RoleEntity;
 import com.naovis.salaryviewer.models.RoleModel;
 import com.naovis.salaryviewer.repositories.RoleRepository;
+import com.naovis.salaryviewer.services.RoleService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -49,5 +50,4 @@ public class RoleServiceImpl implements RoleService {
         roleRepository.save(newEntity);
         return newEntity.getId();
     }
-
 }

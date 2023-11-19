@@ -1,4 +1,4 @@
-package com.naovis.salaryviewer.services;
+package com.naovis.salaryviewer.services.impl;
 
 import com.naovis.salaryviewer.converters.Converter;
 import com.naovis.salaryviewer.entities.RoleEntity;
@@ -6,6 +6,7 @@ import com.naovis.salaryviewer.entities.UserEntity;
 import com.naovis.salaryviewer.models.RoleModel;
 import com.naovis.salaryviewer.repositories.RoleRepository;
 import com.naovis.salaryviewer.repositories.UserRepository;
+import com.naovis.salaryviewer.services.UserRoleService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,4 @@ public class UserRoleServiceImpl implements UserRoleService {
 
         return roleModels;
     }
-
-
 }

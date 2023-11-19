@@ -1,16 +1,18 @@
 package com.naovis.salaryviewer.entities;
 
-import lombok.Data;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "ApplicationUser")
-@Data
-public class UserEntity extends EntityBase {
+@Getter
+@Setter
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
@@ -46,6 +48,5 @@ public class UserEntity extends EntityBase {
             joinColumns = @JoinColumn(name = "RefUser"),
             inverseJoinColumns = @JoinColumn(name = "RefRole")
     )
-    @EqualsAndHashCode.Exclude
     private List<RoleEntity> roles;
 }

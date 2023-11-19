@@ -1,15 +1,17 @@
 package com.naovis.salaryviewer.entities;
 
-import lombok.Data;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "Role")
-@Data
-public class RoleEntity extends EntityBase {
+@Getter
+@Setter
+public class RoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -18,10 +20,9 @@ public class RoleEntity extends EntityBase {
     @Column(name = "Name")
     private String name;
 
-    @Column(name = "Descroption")
+    @Column(name = "Description")
     private String description;
 
     @ManyToMany(mappedBy = "roles")
-    @EqualsAndHashCode.Exclude
     private List<UserEntity> entities;
 }

@@ -1,14 +1,14 @@
 package com.naovis.salaryviewer.models;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Date;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 public class UserModel extends Model {
-
-
     private Long id;
     private Boolean isActive;
     private String firstName;
@@ -19,5 +19,4 @@ public class UserModel extends Model {
     private Date validFrom;
     private Date validTo;
     private List<RoleModel> roles;
-
 }

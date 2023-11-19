@@ -1,9 +1,10 @@
-package com.naovis.salaryviewer.services;
+package com.naovis.salaryviewer.services.impl;
 
 import com.naovis.salaryviewer.converters.Converter;
 import com.naovis.salaryviewer.entities.UserEntity;
 import com.naovis.salaryviewer.models.UserModel;
 import com.naovis.salaryviewer.repositories.UserRepository;
+import com.naovis.salaryviewer.services.UserService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

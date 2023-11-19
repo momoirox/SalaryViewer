@@ -1,15 +1,14 @@
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://localhost;databaseName=SalaryViewer
-    username: DBStudent
-    password: tnnHfEgt2w26
+    url: jdbc:sqlserver://localhost;databaseName=SalaryViewer;integratedSecurity=true;encrypt=false
+
   jpa:
     hibernate:
-      ddl-auto: none
+      dialect: org.hibernate.dialect.SQLServerDialect
+      ddl-auto: validate
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    open-in-view: false
 
 
 
