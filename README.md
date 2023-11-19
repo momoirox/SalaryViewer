@@ -1,12 +1,14 @@
 # SalaryViewer
 
 Download SQL Server on-premieses https://www.microsoft.com/en-us/sql-server/sql-server-downloads 
+
 Download SQL Managment Studio
 
-   url: jdbc:sqlserver://localhost;databaseName=SalaryViewer;integratedSecurity=true;encrypt=false
+url: jdbc:sqlserver://localhost;databaseName=SalaryViewer;integratedSecurity=true;encrypt=false
 
-   encrypt=false; - connection does not use SSL/TLS encryption.
-   integratedSecurity=true; - indicates that Windows authentication
+encrypt=false; - connection does not use SSL/TLS encryption.
+
+integratedSecurity=true; - indicates that Windows authentication
 
 SQL Server version 11 so install sqljdbc-11.2.3.0 
 https://learn.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver16#112
