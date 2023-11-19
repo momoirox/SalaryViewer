@@ -6,10 +6,10 @@ import com.naovis.salaryviewer.entities.UserEntity;
 import com.naovis.salaryviewer.models.RoleModel;
 import com.naovis.salaryviewer.repositories.RoleRepository;
 import com.naovis.salaryviewer.repositories.UserRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class UserRoleServiceImpl implements UserRoleService {
     @Override
     public void set(Long userId, ArrayList<Long> rolesId) {
         List<RoleEntity> roleEntities = roleRepository.findAllById(rolesId);
-        UserEntity userEntity = userRepository.getById(userId);
+        UserEntity userEntity = userRepository.getReferenceById(userId);
         userEntity.setRoles(roleEntities);
         userRepository.save(userEntity);
 

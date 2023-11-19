@@ -4,10 +4,10 @@ import com.naovis.salaryviewer.converters.Converter;
 import com.naovis.salaryviewer.entities.UserEntity;
 import com.naovis.salaryviewer.models.UserModel;
 import com.naovis.salaryviewer.repositories.UserRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserModel get(Long id) {
-        UserEntity userEntity = usersRepo.getById(id);
+        UserEntity userEntity = usersRepo.getReferenceById(id);
         return userConverter.convert(userEntity);
     }
 
