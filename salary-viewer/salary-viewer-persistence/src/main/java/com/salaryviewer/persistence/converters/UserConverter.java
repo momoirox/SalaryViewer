@@ -1,7 +1,7 @@
-package com.salaryviewer.core.converters;
+package com.salaryviewer.persistence.converters;
 
-import com.salaryviewer.core.entities.UserEntity;
 import com.salaryviewer.core.models.UserModel;
+import com.salaryviewer.persistence.entities.UserEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class UserConverter implements Converter<UserEntity, UserModel> {
     public List<UserModel> convert(List<UserEntity> entities) {
         List<UserModel> users = new ArrayList<>();
 
-        for(UserEntity e : entities){
+        for (UserEntity e : entities) {
             users.add(convert(e));
         }
         return users;

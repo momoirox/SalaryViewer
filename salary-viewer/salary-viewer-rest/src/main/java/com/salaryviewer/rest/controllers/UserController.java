@@ -27,20 +27,12 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserModel save(@RequestBody UserModel newUser) {
-        Long id = userService.save(newUser);
-        return userService.get(id);
+    public void save(@RequestBody UserModel newUser) {
+        userService.save(newUser);
     }
 
     @DeleteMapping("{id}")
     public void delete(@PathVariable Long id) {
         userService.delete(id);
     }
-
-    @PutMapping("{id}")
-    public UserModel save(@PathVariable Long id, @RequestBody UserModel user) {
-        userService.save(user, id);
-        return userService.get(id);
-    }
-
 }

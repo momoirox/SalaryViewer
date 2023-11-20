@@ -20,8 +20,7 @@ public interface RoleService {
      *
      * @param role data model for updating role
      */
-    Long save(RoleModel role);
-
+    RoleModel save(RoleModel role);
 
     /**
      * Deletes role by Id from database.
@@ -35,15 +34,4 @@ public interface RoleService {
      * @return Returns all roles form database.
      */
     List<RoleModel> getAll();
-
-    /**
-     * Creates new role in database
-     *
-     * @param role role model data
-     * @param id   role id
-     * @return id of created role
-     */
-    Long save(RoleModel role, Long id);
-
-
 }

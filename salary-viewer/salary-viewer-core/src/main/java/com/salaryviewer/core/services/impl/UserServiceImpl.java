@@ -1,14 +1,11 @@
 package com.salaryviewer.core.services.impl;
 
-import com.salaryviewer.core.services.UserService;
-import com.salaryviewer.core.entities.UserEntity;
 import com.salaryviewer.core.models.UserModel;
+import com.salaryviewer.core.repositories.UserRepository;
+import com.salaryviewer.core.services.UserService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import com.salaryviewer.core.converters.Converter;
-import com.salaryviewer.core.repositories.UserRepository;
 
 import java.util.List;
 
@@ -17,43 +14,26 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository usersRepo;
-    private final Converter<UserEntity, UserModel> userConverter;
+    private final UserRepository userRepository;
 
     @Override
     public UserModel get(Long id) {
-        UserEntity userEntity = usersRepo.getReferenceById(id);
-        return userConverter.convert(userEntity);
+        return userRepository.getReferenceById(id);
     }
 
     @Override
-    public Long save(UserModel user, Long id) {
-
-        user.setId(id);
-        UserEntity entity = userConverter.convert(user);
-        usersRepo.save(entity);
-        return entity.getId();
-
+    public void save(UserModel user) {
+        userRepository.save(user);
     }
 
     @Override
     public void delete(Long id) {
-        usersRepo.deleteById(id);
+        userRepository.delete(id);
     }
 
     @Override
     public List<UserModel> getAll() {
-        List<UserEntity> entities = usersRepo.findAll();
-        return userConverter.convert(entities);
-    }
-
-    @Override
-    public Long save(UserModel user) {
-
-        UserEntity newEntity = userConverter.convert(user);
-        usersRepo.save(newEntity);
-        return newEntity.getId();
-
+        return userRepository.findAll();
     }
 }
 

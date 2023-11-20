@@ -1,14 +1,11 @@
 package com.salaryviewer.core.services.impl;
 
+import com.salaryviewer.core.models.RoleModel;
+import com.salaryviewer.core.repositories.RoleRepository;
 import com.salaryviewer.core.services.RoleService;
-import com.salaryviewer.core.entities.RoleEntity;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import com.salaryviewer.core.converters.Converter;
-import com.salaryviewer.core.models.RoleModel;
-import com.salaryviewer.core.repositories.RoleRepository;
 
 import java.util.List;
 
@@ -17,37 +14,24 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RoleServiceImpl implements RoleService {
     private final RoleRepository roleRepository;
-    private final Converter<RoleEntity, RoleModel> roleConverter;
 
     @Override
     public List<RoleModel> getAll() {
-        List<RoleEntity> entities = roleRepository.findAll();
-        return roleConverter.convert(entities);
+        return roleRepository.findAll();
     }
 
     @Override
     public RoleModel get(Long id) {
-        RoleEntity entity = roleRepository.getReferenceById(id);
-        return roleConverter.convert(entity);
+        return roleRepository.get(id);
     }
 
     @Override
-    public Long save(RoleModel role) {
-        RoleEntity entity = roleConverter.convert(role);
-        roleRepository.save(entity);
-        return entity.getId();
+    public RoleModel save(RoleModel role) {
+        return roleRepository.save(role);
     }
 
     @Override
     public void delete(Long id) {
-        roleRepository.deleteById(id);
-    }
-
-    @Override
-    public Long save(RoleModel role, Long id) {
-        role.setId(role.getId());
-        RoleEntity newEntity = roleConverter.convert(role);
-        roleRepository.save(newEntity);
-        return newEntity.getId();
+        roleRepository.delete(id);
     }
 }

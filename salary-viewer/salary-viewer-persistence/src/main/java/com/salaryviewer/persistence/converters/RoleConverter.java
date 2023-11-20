@@ -1,9 +1,9 @@
-package com.salaryviewer.core.converters;
-
-import com.salaryviewer.core.entities.RoleEntity;
-import org.springframework.stereotype.Component;
+package com.salaryviewer.persistence.converters;
 
 import com.salaryviewer.core.models.RoleModel;
+import com.salaryviewer.persistence.entities.RoleEntity;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +38,4 @@ public class RoleConverter implements Converter<RoleEntity, RoleModel> {
         }
         return roleModels;
     }
-
-
 }

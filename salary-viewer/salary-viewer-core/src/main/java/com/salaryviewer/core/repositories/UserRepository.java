@@ -1,9 +1,15 @@
 package com.salaryviewer.core.repositories;
 
-import com.salaryviewer.core.entities.UserEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import com.salaryviewer.core.models.UserModel;
 
-@Repository
-public interface UserRepository extends JpaRepository<UserEntity, Long> {
+import java.util.List;
+
+public interface UserRepository {
+    UserModel getReferenceById(Long userId);
+
+    UserModel save(UserModel userModel);
+
+    void delete(Long id);
+
+    List<UserModel> findAll();
 }

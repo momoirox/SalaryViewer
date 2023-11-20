@@ -27,20 +27,11 @@ public class RoleController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public RoleModel save(@RequestBody RoleModel newRole) {
-        Long id = roleService.save(newRole);
-        return roleService.get(id);
-    }
-
-    @PutMapping("{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public RoleModel save(@PathVariable Long id, @RequestBody RoleModel role) {
-        roleService.save(role, id);
-        return roleService.get(id);
+        return roleService.save(newRole);
     }
 
     @DeleteMapping(value = "{id}")
     public void delete(@PathVariable Long id) {
         roleService.delete(id);
     }
-
 }

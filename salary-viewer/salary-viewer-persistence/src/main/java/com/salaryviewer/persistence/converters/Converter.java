@@ -1,6 +1,7 @@
-package com.salaryviewer.core.converters;
+package com.salaryviewer.persistence.converters;
 
 import com.salaryviewer.core.models.Model;
+
 import java.util.List;
 
 
@@ -29,5 +30,4 @@ public interface Converter<TEntity, TModel extends Model> {
      * @return models list
      */
     List<TModel> convert(List<TEntity> entities);
-
 }

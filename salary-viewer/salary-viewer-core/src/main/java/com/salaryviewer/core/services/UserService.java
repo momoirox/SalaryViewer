@@ -20,7 +20,7 @@ public interface UserService {
      *
      * @param user user model
      */
-    Long save(UserModel user);
+    void save(UserModel user);
 
     /**
      * Deletes user by id form database
@@ -33,13 +33,4 @@ public interface UserService {
      * @return all users from database
      */
     List<UserModel> getAll();
-
-    /**
-     * Creates new user in database
-     *
-     * @param data user data model for creating user
-     * @param id   user id
-     * @return
-     */
-    Long save(UserModel data, Long id);
 }

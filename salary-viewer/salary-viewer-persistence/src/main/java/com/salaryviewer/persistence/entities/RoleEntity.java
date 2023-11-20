@@ -1,4 +1,4 @@
-package com.salaryviewer.core.entities;
+package com.salaryviewer.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;

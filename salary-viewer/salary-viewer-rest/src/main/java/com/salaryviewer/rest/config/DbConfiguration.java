@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @EnableAutoConfiguration
-@EntityScan("com.salaryviewer.core")
-@EnableJpaRepositories("com.salaryviewer.core")
+@EntityScan("com.salaryviewer.persistence")
+@EnableJpaRepositories("com.salaryviewer.persistence")
 public class DbConfiguration {
 }
