@@ -10,4 +10,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("com.salaryviewer.core")
 @EnableJpaRepositories("com.salaryviewer.core")
 public class DbConfiguration {
+    //coco
 }
